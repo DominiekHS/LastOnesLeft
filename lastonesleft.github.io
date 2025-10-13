@@ -1,38 +1,4 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Last Ones Left</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-family: "Inter", sans-serif;
-      background-color: #0d0d0d;
-      color: #ffffff;
-      text-align: center;
-    }
-    h1 {
-      font-size: 4rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      letter-spacing: 1px;
-    }
-    p {
-      font-size: 1.5rem;
-      font-weight: 400;
-      opacity: 0.8;
-    }
-  </style>
-</head>
-<body>
-  <h1>Last Ones Left</h1>
-  <p>Bezoek. Beleef. Bespaar.</p>
-</body>
-</html>
+DominiekHS.github.io
+LOL - Last Ones Left
+
 
