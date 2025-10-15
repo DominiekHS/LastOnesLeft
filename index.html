@@ -1,43 +1,243 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Last Ones Left</title>
-  <meta name="color-scheme" content="light">
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      background-color: rgb(246, 204, 8) !important;
-      color: #000000 !important;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      -webkit-text-fill-color: #000000 !important;
-      -webkit-background-color: rgb(246, 204, 8) !important;
-      forced-color-adjust: none !important;
-    }
-    h1 {
-      font-size: 48px;
-      margin: 0;
-    }
-    p {
-      font-size: 36px;
-      margin: 10px 0 0 0;
-    }
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Last Ones Left - Spontaan, lokaal en betaalbaar</title>
+<style>
+  :root{
+    --accent:#f6cc08; /* geel */
+    --muted:#666;
+    --card-bg:#fff;
+    --max-width:1100px;
+  }
+  html { scroll-behavior: smooth; }
+  body{
+    margin:0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color:#111;
+    background:#fff;
+    line-height:1.5;
+  }
+
+  .nav{
+    position:sticky;
+    top:0;
+    background:#efefef;
+    border-bottom:1px solid rgba(0,0,0,0.06);
+    z-index:20;
+  }
+  .nav .container{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;gap:24px;padding:12px 16px;}
+  .brand{font-weight:700;}
+  .nav a{color:#111;text-decoration:none;margin-left:12px;}
+  .nav-right{margin-left:auto;display:flex;gap:12px;align-items:center;}
+
+  .hero{
+    min-height:300px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background-image: url("images/hero.jpg");
+    background-size:cover;
+    background-position:center;
+    position:relative;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;inset:0;
+    background:rgba(246,204,8,0.8); /* gele overlay */
+  }
+  .hero .inner{position:relative;max-width:1100px;padding:48px 20px;}
+  .hero h1{font-size:2.8rem;margin:0 0 12px;font-weight:800;letter-spacing:-0.02em;color:#000;}
+  .hero p{margin:0 0 26px;color:#000;font-size:1.05rem;}
+  .hero .controls{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+  .btn{
+    appearance:none;border:0;padding:14px 26px;border-radius:36px;font-weight:700;
+    cursor:pointer;text-decoration:none;display:inline-block;
+  }
+  .btn-primary{background:#000;color:#fff;} /* zwart */
+  .btn-outline{background:#fff;color:#000;border:2px solid #fff;} /* wit met zwarte tekst */
+  .btn-pink{background:#ff0080;color:#fff;border:none;} /* vivid pink */
+
+  .section{padding:64px 16px;}
+  .container{max-width:var(--max-width);margin:0 auto;}
+  .center{text-align:center;}
+  .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:28px;}
+  .how-card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.06);}
+  .how-card img{width:100%;height:170px;object-fit:cover;display:block;}
+  .how-card .body{padding:18px;}
+  .how-card h3{margin:0 0 10px;font-size:1.1rem;}
+  .how-card p{margin:0;color:var(--muted);font-size:0.95rem;}
+
+  .activities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:28px;}
+  .activity{background:var(--card-bg);border-radius:8px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.06);display:flex;flex-direction:column;}
+  .activity img{width:100%;height:200px;object-fit:cover;}
+  .activity .card-body{padding:18px;flex:1;display:flex;flex-direction:column;justify-content:space-between;}
+  .activity h4{margin:0 0 8px;}
+  .activity p.lead{margin:0 0 14px;color:var(--muted);}
+  .activity .meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+  .activity .price{color:var(--accent);font-weight:700;}
+  .book-btn{background:var(--accent);border-radius:8px;padding:12px 14px;color:#fff;text-align:center;text-decoration:none;display:block;}
+
+  .view-all{display:block;text-align:center;margin-top:18px;color:var(--accent);text-decoration:none;font-weight:700;}
+  .spacer{height:48px;}
+
+  @media (max-width:980px){
+    .how-grid,.activities-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:680px){
+    .how-grid,.activities-grid{grid-template-columns:1fr;}
+    .hero{min-height:300px;}
+    .hero h1{font-size:2.2rem;}
+    .hero p{font-size:0.98rem;}
+  }
+</style>
 </head>
 <body>
-  <h1>Last Ones Left</h1>
-  <p>Bezoek. Beleef. Bespaar.</p>
-  <p>Instagram: @lastonesleft_official</p>
-  <p>LinkedIn: Last Ones Left</p>
+
+  <header class="nav">
+    <div class="container">
+      <div class="brand">Last Ones Left</div>
+      <nav class="nav-right">
+        <a href="#activities">Activiteiten</a>
+        <a href="#how">Hoe het werkt</a>
+        <a href="#discounts">Kortingen</a>
+        <a href="#for-businesses">Voor Bedrijven</a>
+        <a href="#book">Pilot</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="inner container">
+        <h1>Spontaan, lokaal en betaalbaar de deur uit!</h1>
+        <p>Bezoek, beleef, bespaar! Ontdek spontane activiteiten in de buurt met exclusieve last-minute kortingen! Wat ga jij vandaag doen?</p>
+        <div class="controls">
+          <a class="btn btn-primary" href="#activities">Ontdek!</a>
+          <a class="btn btn-outline" href="#how">Hoe dan?</a>
+        </div>
+        <div class="controls" style="margin-top:12px;">
+          <a class="btn btn-pink" href="https://www.linkedin.com/company/last-ones-left/" target="_blank">Volg ons op LinkedIn</a>
+          <a class="btn btn-pink" href="https://www.instagram.com/lastonesleft_official?igsh=Z3Rzdmg1d2U2ano4" target="_blank">Volg ons op Instagram</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <div class="container center">
+        <h2>Hoe het werkt:</h2>
+        <div class="how-grid">
+          <div class="how-card">
+            <img src="images/how1.jpg" alt="Bladeren en filteren">
+            <div class="body">
+              <h3>1. Bladeren & Filteren</h3>
+              <p>Vind activiteiten bij jou in de buurt met filters voor tijd, locatie en budget.</p>
+            </div>
+          </div>
+          <div class="how-card">
+            <img src="images/how2.jpg" alt="Direct boeken">
+            <div class="body">
+              <h3>2. Direct Boeken</h3>
+              <p>Bevestig je plek in enkele seconden met één klik en ontvang direct bevestiging.</p>
+            </div>
+          </div>
+          <div class="how-card">
+            <img src="images/how3.jpg" alt="Genieten en besparen">
+            <div class="body">
+              <h3>3. Genieten & Besparen</h3>
+              <p>Ga op pad en beleef plezier terwijl je tot wel 70% bespaart op geweldige ervaringen.</p>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:28px;">
+          <a class="btn btn-primary" href="#activities">Begin nu</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="activities" class="section" style="background:#fafafa;">
+      <div class="container center">
+        <h2>Populaire Activiteiten</h2>
+        <div class="activities-grid">
+          <article class="activity">
+            <img src="images/activity1.jpg" alt="Bowlen Avond">
+            <div class="card-body">
+              <div>
+                <h4>Bowlen Avond</h4>
+                <p class="lead">Scoor strikes bij de leukste bowlingbanen</p>
+                <div class="meta">
+                  <div class="spots">2 plekken</div>
+                  <div class="orig-price" style="color:#999;text-decoration:line-through;">€35</div>
+                </div>
+              </div>
+              <a class="book-btn" href="#book">Boek Nu</a>
+            </div>
+          </article>
+
+          <article class="activity">
+            <img src="images/activity2.jpg" alt="Ultimate Bowlen">
+            <div class="card-body">
+              <div>
+                <h4>Ultimate Bowlen</h4>
+                <p class="lead">Verbeter je strike-game</p>
+                <div class="meta">
+                  <div class="spots">5 plekken</div>
+                  <div class="orig-price" style="color:#999;text-decoration:line-through;">€40</div>
+                </div>
+              </div>
+              <a class="book-btn" href="#book">Boek Nu</a>
+            </div>
+          </article>
+
+          <article class="activity">
+            <img src="images/activity3.jpg" alt="Glow Bowlen">
+            <div class="card-body">
+              <div>
+                <h4>Glow Bowlen</h4>
+                <p class="lead">Neon nachten, grote besparingen</p>
+                <div class="meta">
+                  <div class="spots">8 plekken</div>
+                  <div class="orig-price" style="color:#999;text-decoration:line-through;">€45</div>
+                </div>
+              </div>
+              <a class="book-btn" href="#book">Boek Nu</a>
+            </div>
+          </article>
+        </div>
+
+        <a class="view-all" href="#activities">Bekijk alle activiteiten →</a>
+      </div>
+    </section>
+
+    <div id="discounts" class="section container" style="padding-top:40px;">
+      <h3>Kortingen</h3>
+      <p style="color:var(--muted);">Bedrijven bieden hun overgebleven plekjes last-minute aan. Omdat jij spontaan dit plekje opvult, wordt dit beloond met korting!</p>
+    </div>
+
+    <div id="for-businesses" class="section container" style="padding-top:40px;">
+      <h3>Voor Bedrijven</h3>
+      <p style="color:var(--muted);">Inmiddels werken 30+ bedrijven verspreid over heel Nederland met ons samen! Wil jij ook samenwerken of heb je vragen? Zoek ons op via Instagram (@lastonesleft_official) of via LinkedIn (Last Ones Left).</p>
+    </div>
+
+    <div id="book" class="section container" style="padding-top:40px;">
+      <h3>Pilot</h3>
+      <p style="color:var(--muted);">We zijn hard aan het werk om Last Ones Left op te zetten. Binnenkort zullen er pilots plaatsvinden om te testen. Volg ons op Instagram en LinkedIn voor updates!</p>
+    </div>
+
+    <div class="spacer"></div>
+  </main>
+
+  <footer style="background:#f6f6f6;border-top:1px solid rgba(0,0,0,0.04);padding:18px 0;">
+    <div class="container" style="font-size:0.9rem;color:#666; display:flex; flex-direction:column; align-items:center; gap:8px;">
+      <div>© 2025 Last Ones Left — Bezoek. Beleef. Bespaar.</div>
+      <div class="controls" style="margin-top:6px;">
+        <a class="btn btn-pink" href="https://www.linkedin.com/company/last-ones-left/" target="_blank">Volg ons op LinkedIn</a>
+        <a class="btn btn-pink" href="https://www.instagram.com/lastonesleft_official?igsh=Z3Rzdmg1d2U2ano4" target="_blank">Volg ons op Instagram</a>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
-
