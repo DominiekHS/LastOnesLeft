@@ -6,7 +6,7 @@
 <title>Last Ones Left - Spontaan, lokaal en betaalbaar</title>
 <style>
   :root{
-    --accent:#f6cc08; /* geel */
+    --accent:#f6cc08;
     --muted:#666;
     --card-bg:#fff;
     --max-width:1100px;
@@ -67,7 +67,7 @@
   .hero::before{
     content:"";
     position:absolute;inset:0;
-    background:rgba(246,204,8,0.8); /* gele overlay */
+    background:rgba(246,204,8,0.8);
   }
   .hero .inner{position:relative;max-width:1100px;padding:48px 20px;}
   .hero h1{font-size:2.8rem;margin:0 0 12px;font-weight:800;letter-spacing:-0.02em;color:#000;}
@@ -104,6 +104,12 @@
   .view-all{display:block;text-align:center;margin-top:18px;color:var(--accent);text-decoration:none;font-weight:700;}
   .spacer{height:48px;}
 
+  /* Center h3 text under emoji in Voor Bedrijven section */
+  #for-businesses .how-card .body h3 {
+      text-align: center;
+      margin: 12px 0 0;
+  }
+
   @media (max-width:980px){
     .how-grid,.activities-grid{grid-template-columns:repeat(2,1fr);}
   }
@@ -130,37 +136,37 @@
 </head>
 <body>
 
-  <header class="nav">
-    <div class="container">
-      <div class="brand">Last Ones Left</div>
-      <div class="nav-toggle" onclick="document.querySelector('.nav-right').classList.toggle('show')">
-        <span></span><span></span><span></span>
-      </div>
-      <nav class="nav-right">
-        <a href="#activities">Activiteiten</a>
-        <a href="#how">Hoe het werkt</a>
-        <a href="#discounts">Kortingen</a>
-        <a href="#for-businesses">Voor Bedrijven</a>
-        <a href="#book">Pilot</a>
-      </nav>
+<header class="nav">
+  <div class="container">
+    <div class="brand">Last Ones Left</div>
+    <div class="nav-toggle" onclick="document.querySelector('.nav-right').classList.toggle('show')">
+      <span></span><span></span><span></span>
     </div>
-  </header>
+    <nav class="nav-right">
+      <a href="#activities">Activiteiten</a>
+      <a href="#how">Hoe het werkt</a>
+      <a href="#discounts">Kortingen</a>
+      <a href="#for-businesses">Voor Bedrijven</a>
+      <a href="#book">Pilot</a>
+    </nav>
+  </div>
+</header>
 
-  <main>
-    <section class="hero">
-      <div class="inner container">
-        <h1>Spontaan, lokaal en betaalbaar de deur uit!</h1>
-        <p>Bezoek, beleef, bespaar! Ontdek spontane activiteiten in de buurt met exclusieve last-minute kortingen! Wat ga jij vandaag doen?</p>
-        <div class="controls">
-          <a class="btn btn-primary" href="#activities">Ontdek!</a>
-          <a class="btn btn-outline" href="#how">Hoe dan?</a>
-        </div>
-        <div class="controls" style="margin-top:12px;">
-          <a class="btn btn-pink" href="https://www.linkedin.com/company/last-ones-left/" target="_blank">Volg ons op LinkedIn</a>
-          <a class="btn btn-pink" href="https://www.instagram.com/lastonesleft_official?igsh=Z3Rzdmg1d2U2ano4" target="_blank">Volg ons op Instagram</a>
-        </div>
+<main>
+  <section class="hero">
+    <div class="inner container">
+      <h1>Spontaan, lokaal en betaalbaar de deur uit!</h1>
+      <p>Bezoek, beleef, bespaar! Ontdek spontane activiteiten in de buurt met exclusieve last-minute kortingen! Wat ga jij vandaag doen?</p>
+      <div class="controls">
+        <a class="btn btn-primary" href="#activities">Ontdek!</a>
+        <a class="btn btn-outline" href="#how">Hoe dan?</a>
       </div>
-    </section>
+      <div class="controls" style="margin-top:12px;">
+        <a class="btn btn-pink" href="https://www.linkedin.com/company/last-ones-left/" target="_blank">Volg ons op LinkedIn</a>
+        <a class="btn btn-pink" href="https://www.instagram.com/lastonesleft_official?igsh=Z3Rzdmg1d2U2ano4" target="_blank">Volg ons op Instagram</a>
+      </div>
+    </div>
+  </section>
 
   <section id="how" class="section">
     <div class="container center">
@@ -174,15 +180,15 @@
           </div>
         </div>
         <div class="how-card">
-	  <div style="font-size:64px; text-align:center; padding-top:20px;">✅📚</div>
-	  <div class="body">
+          <div style="font-size:64px; text-align:center; padding-top:20px;">✅📚</div>
+          <div class="body">
             <h3>2. Direct Boeken</h3>
             <p>Bevestig je plek in enkele seconden met een paar klikken en ontvang direct bevestiging.</p>
           </div>
         </div>
         <div class="how-card">
           <div style="font-size:64px; text-align:center; padding-top:20px;">🥳💸</div>
-	  <div class="body">
+          <div class="body">
             <h3>3. Genieten & Besparen</h3>
             <p>Ga op pad en beleef plezier terwijl je met kortingen bespaart op geweldige ervaringen.</p>
           </div>
@@ -194,89 +200,154 @@
     </div>
   </section>
 
-    <section id="activities" class="section" style="background:#fafafa;">
-      <div class="container center">
-        <h2>Populaire Activiteiten</h2>
-        <div class="activities-grid">
-          <article class="activity">
-            <img src="images/activity1.jpg" alt="Bowlen Avond">
-            <div class="card-body">
-              <div>
-                <h4>Bowlen Avond</h4>
-                <p class="lead">Scoor strikes bij de leukste bowlingbanen</p>
-                <div class="meta">
-                  <div class="spots">2 plekken</div>
-                  <div class="orig-price" style="color:#999;text-decoration:line-through;">€35</div>
-                </div>
+  <section id="activities" class="section" style="background:#fafafa;">
+    <div class="container center">
+      <h2>Populaire Activiteiten</h2>
+      <p style="color:var(--muted);max-width:700px;margin:0 auto;white-space:pre-line;">❗ Hieronder vind je een indicatie van activiteiten. Reserveren kan nog niet, maar hier komt snel verandering in. ❗</p>
+       <div class="activities-grid">
+        <article class="activity">
+          <div style="font-size:140px; text-align:center; padding-top:20px;">🎳</div>
+          <div class="card-body">
+            <div>
+              <h4>Bowlen</h4>
+              <p class="lead">Scoor strikes bij de leukste bowlingbanen!</p>
+              <div class="meta">
+                <div class="spots">2 plekken</div>
+                <div class="orig-price" style="color:#999;text-decoration:line-through;">€35</div>
               </div>
-              <a class="book-btn" href="#book">Boek Nu</a>
             </div>
-          </article>
+            <a class="book-btn" href="#book">Binnenkort te boeken!</a>
+          </div>
+        </article>
 
-          <article class="activity">
-            <img src="images/activity2.jpg" alt="Ultimate Bowlen">
-            <div class="card-body">
-              <div>
-                <h4>Ultimate Bowlen</h4>
-                <p class="lead">Verbeter je strike-game</p>
-                <div class="meta">
-                  <div class="spots">5 plekken</div>
-                  <div class="orig-price" style="color:#999;text-decoration:line-through;">€40</div>
-                </div>
+        <article class="activity">
+          <div style="font-size:140px; text-align:center; padding-top:20px;">🎭</div>
+          <div class="card-body">
+            <div>
+              <h4>Theater</h4>
+              <p class="lead">De leukste voorstelling van de maand.</p>
+              <div class="meta">
+                <div class="spots">5 plekken</div>
+                <div class="orig-price" style="color:#999;text-decoration:line-through;">€40</div>
               </div>
-              <a class="book-btn" href="#book">Boek Nu</a>
             </div>
-          </article>
+            <a class="book-btn" href="#book">Binnenkort te boeken!</a>
+          </div>
+        </article>
 
-          <article class="activity">
-            <img src="images/activity3.jpg" alt="Glow Bowlen">
-            <div class="card-body">
-              <div>
-                <h4>Glow Bowlen</h4>
-                <p class="lead">Neon nachten, grote besparingen</p>
-                <div class="meta">
-                  <div class="spots">8 plekken</div>
-                  <div class="orig-price" style="color:#999;text-decoration:line-through;">€45</div>
-                </div>
+        <article class="activity">
+          <div style="font-size:140px; text-align:center; padding-top:20px;">🕹️</div>
+          <div class="card-body">
+            <div>
+              <h4>Arcade</h4>
+              <p class="lead">Ga jij met een nieuwe highscore de deur uit?</p>
+              <div class="meta">
+                <div class="spots">8 plekken</div>
+                <div class="orig-price" style="color:#999;text-decoration:line-through;">€45</div>
               </div>
-              <a class="book-btn" href="#book">Boek Nu</a>
             </div>
-          </article>
+            <a class="book-btn" href="#book">Binnenkort te boeken!</a>
+          </div>
+        </article>
+
+        <article class="activity">
+          <div style="font-size:140px; text-align:center; padding-top:20px;">📽️</div>
+          <div class="card-body">
+            <div>
+              <h4>Bioscoop</h4>
+              <p class="lead">Geniet van je favoriete film inclusief consumptie.</p>
+              <div class="meta">
+                <div class="spots">10 plekken</div>
+                <div class="orig-price" style="color:#999;text-decoration:line-through;">€20</div>
+              </div>
+            </div>
+            <a class="book-btn" href="#book">Binnenkort te boeken!</a>
+          </div>
+        </article>
+
+        <article class="activity">
+          <div style="font-size:140px; text-align:center; padding-top:20px;">🧩</div>
+          <div class="card-body">
+            <div>
+              <h4>Escape Room</h4>
+              <p class="lead">Kun jij ontspannen?</p>
+              <div class="meta">
+                <div class="spots">3 plekken</div>
+                <div class="orig-price" style="color:#999;text-decoration:line-through;">€99</div>
+              </div>
+            </div>
+            <a class="book-btn" href="#book">Binnenkort te boeken!</a>
+          </div>
+        </article>
+
+        <article class="activity">
+          <div style="font-size:140px; text-align:center; padding-top:20px;">🏍️</div>
+          <div class="card-body">
+            <div>
+              <h4>Motor Circuit</h4>
+              <p class="lead">Ongeacht je niveau voor het eerst of beter leren rijden!</p>
+              <div class="meta">
+                <div class="spots">4 plekken</div>
+                <div class="orig-price" style="color:#999;text-decoration:line-through;">€14</div>
+              </div>
+            </div>
+            <a class="book-btn" href="#book">Binnenkort te boeken!</a>
+          </div>
+        </article>
+      </div>
+      <a class="view-all" href="#activities">Bekijk alle activiteiten →</a>
+    </div>
+  </section>
+
+
+  <div id="discounts" class="section container" style="padding-top:40px;">
+    <h3>Kortingen</h3>
+    <p style="color:var(--muted);">Bedrijven bieden hun overgebleven plekjes last-minute aan. Omdat jij spontaan dit plekje opvult, wordt dit beloond met korting!</p>
+  </div>
+
+  <div id="for-businesses" class="section container" style="padding-top:40px;">
+    <h3>Voor Bedrijven</h3>
+    <p style="color:var(--muted);">Inmiddels werkt een mooi aantal prachtige bedrijven samen met Last Ones Left! Ook met jouw bedrijf samenwerken, zijn er vragen of meer weten? Zoek ons op via Instagram (@lastonesleft_official) of via LinkedIn (Last Ones Left). Binnen 24 uur reactie!</p>
+    <div class="how-grid">
+      <div class="how-card">
+        <div style="font-size:64px; text-align:center; padding-top:20px;">🤝</div>
+        <div class="body">
+          <h3>34 samenwerkende bedrijven</h3>
         </div>
-
-        <a class="view-all" href="#activities">Bekijk alle activiteiten →</a>
       </div>
-    </section>
-
-    <div id="discounts" class="section container" style="padding-top:40px;">
-      <h3>Kortingen</h3>
-      <p style="color:var(--muted);">Bedrijven bieden hun overgebleven plekjes last-minute aan. Omdat jij spontaan dit plekje opvult, wordt dit beloond met korting!</p>
-    </div>
-
-    <div id="for-businesses" class="section container" style="padding-top:40px;">
-      <h3>Voor Bedrijven</h3>
-      <p style="color:var(--muted);">Inmiddels werken 30+ bedrijven verspreid over heel Nederland met ons samen! Wil jij ook samenwerken of heb je vragen? Zoek ons op via Instagram (@lastonesleft_official) of via LinkedIn (Last Ones Left).</p>
-    </div>
-
-    <div id="book" class="section container" style="padding-top:40px;">
-      <h3>Pilot</h3>
-      <p style="color:var(--muted);">We zijn hard aan het werk om Last Ones Left op te zetten. Binnenkort zullen er pilots plaatsvinden om te testen. Volg ons op Instagram en LinkedIn voor updates!</p>
-      <div style="font-size:64px; text-align:center; margin-top:16px;">🚧👷</div>
-    </div>
-
-    <div class="spacer"></div>
-  </main>
-
-  <footer style="background:#f6f6f6;border-top:1px solid rgba(0,0,0,0.04);padding:18px 0;">
-    <div class="container" style="font-size:0.9rem;color:#666; display:flex; flex-direction:column; align-items:center; gap:8px;">
-      <div>© Alle rechten voorbehouden. Last Ones Left — Bezoek. Beleef. Bespaar.</div>
-      <div class="controls" style="margin-top:6px;">
-        <a class="btn btn-pink" href="https://www.linkedin.com/company/last-ones-left/" target="_blank">Volg ons op LinkedIn</a>
-        <a class="btn btn-pink" href="https://www.instagram.com/lastonesleft_official?igsh=Z3Rzdmg1d2U2ano4" target="_blank">Volg ons op Instagram</a>
+      <div class="how-card">
+        <div style="font-size:64px; text-align:center; padding-top:20px;">🇳🇱</div>
+        <div class="body">
+          <h3>12 provincies in Nederland</h3>
+        </div>
+      </div>
+      <div class="how-card">
+        <div style="font-size:64px; text-align:center; padding-top:20px;">✨</div>
+        <div class="body">
+          <h3>100+ activiteiten</h3>
+        </div>
       </div>
     </div>
-  </footer>
+  </div>
+
+  <div id="book" class="section container" style="padding-top:40px;">
+    <h3>Pilot</h3>
+    <p style="color:var(--muted);">We zijn hard aan het werk om Last Ones Left op te zetten. Binnenkort zullen er pilots plaatsvinden om te testen. Volg ons op Instagram en LinkedIn voor updates!</p>
+    <div style="font-size:64px; text-align:center; margin-top:16px;">🚧👷</div>
+  </div>
+
+  <div class="spacer"></div>
+</main>
+
+<footer style="background:#f6f6f6;border-top:1px solid rgba(0,0,0,0.04);padding:18px 0;">
+  <div class="container" style="font-size:0.9rem;color:#666; display:flex; flex-direction:column; align-items:center; gap:8px;">
+    <div>© Alle rechten voorbehouden. Last Ones Left — Bezoek. Beleef. Bespaar.</div>
+    <div class="controls" style="margin-top:6px;">
+      <a class="btn btn-pink" href="https://www.linkedin.com/company/last-ones-left/" target="_blank">Volg ons op LinkedIn</a>
+      <a class="btn btn-pink" href="https://www.instagram.com/lastonesleft_official?igsh=Z3Rzdmg1d2U2ano4" target="_blank">Volg ons op Instagram</a>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
-
